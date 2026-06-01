@@ -10,19 +10,19 @@ public class ClientHandler {
         this.socket = socket;
     }
 
-    public void run() throws IOException {
-        String text = "some text";
-        int count = 0;
+    public void run(int count) throws IOException {
+        String text = "some text : From client "+count;
+        int c = 0;
         do{
-            System.out.println("Received message from client "+text);
-            count++;
+            System.out.println("Received message from client "+count +" : "+text);
+            c++;
             try{
                 Thread.sleep(1000);
             }catch(InterruptedException ex){
                 System.out.println("Thread Interrupted"+ex.getMessage());
             }
             System.out.println("Thanks");
-        }while(count<=5);
+        }while(c<=5);
         socket.close();
     }
 }
