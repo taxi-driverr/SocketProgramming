@@ -20,7 +20,7 @@ public class Server {
                 System.out.println("new client connected");
 
                 try(BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))){
-                    PrintWriter out = new PrintWriter(socket.getOutputStream());
+                    PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                     out.println("echo from server ");
                     String clientMessage = in.readLine();
                     System.out.println("Message from client :"+clientMessage);
